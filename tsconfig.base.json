@@ -11,37 +11,26 @@
     "importHelpers": true,
     "target": "es2022",
     "module": "esnext",
-    "lib": [
-      "es2022",
-      "dom"
-    ],
+    "lib": ["es2022", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@org/api/products": [
-        "libs/api/products/src/index.ts"
-      ],
-      "@org/models": [
-        "libs/shared/models/src/index.ts"
-      ],
-      "@org/shop/data": [
-        "libs/shop/data/src/index.ts"
-      ],
+      "@org/api/products": ["libs/api/products/src/index.ts"],
+      "@org/models": ["libs/shared/models/src/index.ts"],
+      "@org/shop/data": ["libs/shop/data/src/index.ts"],
       "@org/shop/feature-product-detail": [
         "libs/shop/feature-product-detail/src/index.ts"
       ],
-      "@org/shop/feature-products": [
-        "libs/shop/feature-products/src/index.ts"
+      "@org/shop/feature-products": ["libs/shop/feature-products/src/index.ts"],
+      "@org/shop/shared-ui": ["libs/shop/shared-ui/src/index.ts"],
+      "@org/feature-dashboard": [
+        "libs/weight-tracker/feature-dashboard/src/index.ts"
       ],
-      "@org/shop/shared-ui": [
-        "libs/shop/shared-ui/src/index.ts"
-      ]
+      "@org/weight-tracker-data": ["libs/weight-tracker/data/src/index.ts"],
+      "@org/api-weight": ["libs/api/weight/src/index.ts"]
     },
     "forceConsistentCasingInFileNames": true
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

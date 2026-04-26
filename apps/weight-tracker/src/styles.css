@@ -1,0 +1,12 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: #111;
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}

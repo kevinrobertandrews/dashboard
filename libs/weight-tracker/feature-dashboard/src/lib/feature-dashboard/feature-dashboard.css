@@ -1,0 +1,276 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.stat-unit {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Quote */
+.quote {
+  color: #888;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* Form */
+.form-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.weight-field {
+  flex: 2;
+}
+
+label {
+  font-size: 13px;
+  color: #888;
+}
+
+input[type="date"],
+input[type="number"],
+input[type="text"] {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 12px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #2dd4bf;
+}
+
+input::placeholder {
+  color: #444;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+}
+
+.weight-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.weight-row input {
+  flex: 1;
+}
+
+.unit-toggle {
+  display: flex;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.unit-toggle button {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 14px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.unit-toggle button.active {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.unit-toggle button:hover:not(.active) {
+  color: #aaa;
+}
+
+.log-btn {
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #555;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px 20px;
+  flex-shrink: 0;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.log-btn:not(:disabled) {
+  color: #fff;
+  border-color: #555;
+}
+
+.log-btn:not(:disabled):hover {
+  border-color: #2dd4bf;
+  color: #2dd4bf;
+}
+
+.log-btn:disabled {
+  cursor: not-allowed;
+}
+
+/* Chart */
+.chart-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 20px 20px 8px;
+}
+
+/* Table */
+.table-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr {
+  background: #1e1e1e;
+}
+
+th {
+  color: #555;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 14px 20px;
+  text-align: left;
+}
+
+tbody tr {
+  border-top: 1px solid #222;
+}
+
+tbody tr:hover {
+  background: #1e1e1e;
+}
+
+td {
+  color: #ccc;
+  font-size: 15px;
+  padding: 16px 20px;
+  vertical-align: middle;
+}
+
+.date-cell strong {
+  color: #fff;
+}
+
+.weight-cell {
+  white-space: nowrap;
+}
+
+.delta {
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+.delta.positive {
+  color: #4ade80;
+}
+
+.delta.negative {
+  color: #f87171;
+}
+
+.note-cell {
+  color: #666;
+}
+
+.action-cell {
+  text-align: right;
+}
+
+.delete-btn {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #555;
+  cursor: pointer;
+  font-size: 18px;
+  height: 32px;
+  line-height: 1;
+  transition: border-color 0.15s, color 0.15s;
+  width: 32px;
+}
+
+.delete-btn:hover {
+  border-color: #f87171;
+  color: #f87171;
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}

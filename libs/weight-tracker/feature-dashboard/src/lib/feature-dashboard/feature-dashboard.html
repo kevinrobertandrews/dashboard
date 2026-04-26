@@ -1,0 +1,142 @@
+<div class="page">
+
+  <!-- Stats bar -->
+  <div class="stats">
+    <div class="stat-card">
+      <span class="stat-label">Current</span>
+      <span class="stat-value">{{ svc.current() != null ? display(svc.current()!) : '—' }}</span>
+      <span class="stat-unit">{{ unit() }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Starting</span>
+      <span class="stat-value">{{ svc.starting() != null ? display(svc.starting()!) : '—' }}</span>
+      <span class="stat-unit">{{ unit() }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Total change</span>
+      <span class="stat-value">{{ totalChangeDisplay() }}</span>
+      <span class="stat-unit">{{ svc.count() > 0 ? 'since first entry' : '' }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Entries</span>
+      <span class="stat-value">{{ svc.count() }}</span>
+      <span class="stat-unit">logged</span>
+    </div>
+  </div>
+
+  @if (motivationalQuote(); as quote) {
+    <p class="quote"><em>{{ quote }}</em></p>
+  }
+
+  <!-- Entry form -->
+  <div class="form-card">
+    <div class="form-row">
+      <div class="field">
+        <label>Date</label>
+        <input type="date" [ngModel]="dateInput()" (ngModelChange)="dateInput.set($event)" />
+      </div>
+      <div class="field weight-field">
+        <label>Weight ({{ unit() }})</label>
+        <div class="weight-row">
+          <input
+            type="number"
+            min="0"
+            step="0.1"
+            [placeholder]="unit() === 'lbs' ? 'e.g. 175' : 'e.g. 79'"
+            [ngModel]="weightInput()"
+            (ngModelChange)="weightInput.set($event)"
+          />
+          <div class="unit-toggle">
+            <button [class.active]="unit() === 'lbs'" (click)="unit.set('lbs')">lbs</button>
+            <button [class.active]="unit() === 'kg'" (click)="unit.set('kg')">kg</button>
+          </div>
+          <button class="log-btn" (click)="log()" [disabled]="!weightInput()">Log</button>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Note (optional)</label>
+      <input
+        type="text"
+        placeholder="e.g. after workout"
+        [ngModel]="noteInput()"
+        (ngModelChange)="noteInput.set($event)"
+      />
+    </div>
+  </div>
+
+  <!-- Chart -->
+  @if (chartData(); as chart) {
+    <div class="chart-card">
+      <svg [attr.viewBox]="'0 0 ' + chart.W + ' ' + chart.H" width="100%" style="display:block">
+        @for (tick of chart.yTicks; track tick.label) {
+          <line
+            [attr.x1]="chart.pad.l"
+            [attr.x2]="chart.W - chart.pad.r"
+            [attr.y1]="tick.y"
+            [attr.y2]="tick.y"
+            stroke="#2a2a2a"
+            stroke-width="1"
+          />
+          <text
+            [attr.x]="chart.pad.l - 10"
+            [attr.y]="tick.y + 4"
+            text-anchor="end"
+            font-size="12"
+            fill="#555"
+            font-family="system-ui, sans-serif"
+          >{{ tick.label }}</text>
+        }
+        <path [attr.d]="chart.areaPath" fill="rgba(45,212,191,0.12)" />
+        <path [attr.d]="chart.linePath" fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+        @for (tick of chart.xTicks; track tick.x) {
+          <text
+            [attr.x]="tick.x"
+            [attr.y]="chart.H - 8"
+            text-anchor="middle"
+            font-size="12"
+            fill="#555"
+            font-family="system-ui, sans-serif"
+          >{{ tick.label }}</text>
+        }
+        @for (c of chart.coords; track c.id) {
+          <circle [attr.cx]="c.x" [attr.cy]="c.y" r="5" fill="#2dd4bf" />
+        }
+      </svg>
+    </div>
+  }
+
+  <!-- History table -->
+  @if (svc.count() > 0) {
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Weight</th>
+            <th>Note</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (entry of entriesWithDelta(); track entry.id) {
+            <tr>
+              <td class="date-cell"><strong>{{ formatDate(entry.date) }}</strong></td>
+              <td class="weight-cell">
+                {{ display(entry.weightLbs) }} {{ unit() }}
+                @if (deltaDisplay(entry.delta); as d) {
+                  <span class="delta" [class.positive]="entry.delta! > 0" [class.negative]="entry.delta! < 0">{{ d }}</span>
+                }
+              </td>
+              <td class="note-cell">{{ entry.note ?? '' }}</td>
+              <td class="action-cell">
+                <button class="delete-btn" (click)="svc.remove(entry.id)">×</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+
+</div>
