@@ -40,14 +40,16 @@ export class ProductsService {
       }
 
       if (filter.minPrice !== undefined) {
+        const min = filter.minPrice; // now TypeScript knows min is number, not "number | undefined"
         filteredProducts = filteredProducts.filter(
-          p => p.price >= filter.minPrice
+          p => p.price >= min // amazing!!!
         );
       }
 
       if (filter.maxPrice !== undefined) {
+        const max = filter.maxPrice;
         filteredProducts = filteredProducts.filter(
-          p => p.price <= filter.maxPrice
+          p => p.price <= max
         );
       }
 
