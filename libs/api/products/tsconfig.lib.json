@@ -6,7 +6,8 @@
     "types": [
       "node"
     ],
-    "module": "ESNext"
+    "module": "ESNext",
+    "ignoreDeprecations": "6.0"
   },
   "include": [
     "src/**/*.ts"
