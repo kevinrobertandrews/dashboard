@@ -1,0 +1,20 @@
+{
+  "name": "dashboard",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "web:build": "(cd web && ng build)",
+    "web:deploy": "echo something with scp",
+    "web:dev": "(cd web && ng serve)",
+    "api:build": "echo build express app...",
+    "api:deploy": "echo deploy express app...",
+    "api:dev": "echo watch express app..."
+  },
+  "keywords": [
+    "dashboard",
+    "weight-tracker"
+  ],
+  "author": "kevinrobertandrews",
+  "license": "MIT",
+  "packageManager": "pnpm@10.19.0"
+}
