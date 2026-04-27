@@ -1,4 +1,41 @@
 <h1>{{ title() }}</h1>
 <div>Last Updated: {{ lastUpdated() }}</div>
 
+<br /><br />
+
+<div id="weight-tracker">
+  <div class="stats">
+    <div id="current" class="stat">
+      <h3>Current</h3>
+      <strong>210</strong>
+      <small>lbs</small>
+    </div>
+    <div id="starting" class="stat">
+      <h3>Starting</h3>
+      <strong>209</strong>
+      <small>lbs</small>
+    </div>
+    <div id="change" class="stat">
+      <h3>Diff</h3>
+      <strong>1</strong>
+      <small>since last entry</small>
+    </div>
+    <div id="logs" class="stat">
+      <h3>Logged</h3>
+      <strong>3</strong>
+      <small>times</small>
+    </div>
+  </div>
+
+  <div id="quote">
+    <h4>Win the day!</h4>
+  </div>
+
+  <form>form</form>
+
+  <div id="graph">graph</div>
+
+  <div id="ledger">ledger</div>
+</div>
+
 <router-outlet></router-outlet>

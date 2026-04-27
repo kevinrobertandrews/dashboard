@@ -1,0 +1,56 @@
+#weight-tracker {
+  --bg: #444;
+
+  background-color: var(--bg);
+
+  max-width: 36rem;
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 0.5rem;
+  }
+
+  .stat {
+    border-radius: 8px;
+    line-height: 1;
+    background-color: rgb(214, 214, 214);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+
+    h3 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    strong {
+      font-size: 2rem;
+    }
+
+    small {
+      font-family: monospace;
+    }
+  }
+
+  #quote h4 {
+    color: rgb(121, 238, 211);
+  }
+
+  form {
+    background-color: red;
+    min-height: 4rem;
+  }
+
+  #graph {
+    min-height: 8rem;
+    background-color: green;
+  }
+
+  #ledger {
+    min-height: 16rem;
+    background-color: blue;
+  }
+}
