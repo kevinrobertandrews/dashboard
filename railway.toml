@@ -1,5 +1,5 @@
 [build]
-buildCommand = "npm ci && npx nx build weight-tracker --configuration=production"
+buildCommand = "npm ci && npx nx build shop --configuration=production"
 
 [deploy]
-startCommand = "npx serve dist/apps/weight-tracker/browser -s -l $PORT"
+startCommand = "node dist/apps/shop/server/server.mjs"
