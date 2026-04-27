@@ -2,7 +2,7 @@
 
 This is my project experimenting with building for kappow.ca
 
-# Scripts
+### Scripts
 
 ```sh
 node scripts/web.dev.js         # spin up a local fronted in watch mode on :4200
@@ -12,7 +12,7 @@ node scripts/web.dev.js         # spin up a local fronted in watch mode on :4200
 node scripts/web.deploy.js      # deploy to dashboard.kappow.ca
 ```
 
-# Folder Structure
+### Folder Structure
 
 ```
 api         // express backend
