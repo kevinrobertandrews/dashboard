@@ -202,4 +202,9 @@ Thumbs.db
 
 .angular
 .vscode
+<<<<<<< HEAD
 >>>>>>> d9d56ca (fold web into rest)
+=======
+
+.env
+>>>>>>> b4ff6c8 (wip)

@@ -2,9 +2,10 @@
   "name": "dashboard",
   "version": "0.0.1",
   "description": "",
+  "type": "module",
   "scripts": {
     "web:build": "(cd web && ng build)",
-    "web:deploy": "echo something with scp",
+    "web:deploy": "node deploy.js",
     "web:dev": "(cd web && ng serve)",
     "api:build": "echo build express app...",
     "api:deploy": "echo deploy express app...",
@@ -16,5 +17,8 @@
   ],
   "author": "kevinrobertandrews",
   "license": "MIT",
-  "packageManager": "pnpm@10.19.0"
+  "packageManager": "pnpm@10.19.0",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
 }
