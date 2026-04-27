@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -145,3 +146,6 @@ vite.config.ts.timestamp-*
 =======
 /node_modules
 >>>>>>> 8c34bb4 (add .gitignore)
+=======
+/**/node_modules
+>>>>>>> 11540cb (fix glob)
